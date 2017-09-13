@@ -1,3 +1,6 @@
+# VSI VERSION
+This repository is a fork off the main CityEngine SDK and is tailored to the particulars of CORE3D. Much of the repository is identical, however we have modified some aspects to make it self contained, and to change the build structure. Futher changes are likely, and will be highlighted in this section.
+
 # Esri CityEngine SDK Examples
 
 Esri CityEngine is based on Esri Procedural Runtime, which is the underlying engine that supports two geoprocessing tools in ArcGIS and drives procedural symbology in ArcGIS Pro. The CityEngine SDK enables you as a 3rd party developer to extend CityEngine with additional import and export formats. Moreover, you can integrate the procedural runtime in your own client applications taking full advantage of the procedural core without running CityEngine or ArcGIS.
