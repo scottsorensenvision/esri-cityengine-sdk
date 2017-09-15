@@ -62,13 +62,23 @@ struct PRTContext {
 		prt::addLogHandler(mLogHandler.get());
 		prt::addLogHandler(mFileLogHandler.get());
 
-		// setup paths for plugins and licensing, assume standard SDK layout as per README.md
-		pcu::Path rootPath = inputArgs.mWorkDir;
+
+		//NOTE: IF YOU ARE HAVING LICENCE ISSUES WITH THE CITY ENGINE LICENSE READ THIS:
+		//errors like:
+		// [fatal] The licensing system could not be initialized, please verify your 'LicParams' data.
+		// [error] init failed, exception caught: 'No license.'
+		// [error] Status code = 3 = No license.
+		//failed to get a CityEngine license, bailing out.
+
+		// these can be caused by runtime linking to the shared libraries as part of the CityEngine SDK.
+		// these files are copied to the build directory
+		//pcu::Path rootPath = inputArgs.mWorkDir;
+		pcu::Path rootPath = pcu::Path("/build/build/src/CityEngine_SDK-build");
 		pcu::Path extPath = rootPath / "lib";
 		std::string fsFlexLibBaseName = pcu::getSharedLibraryPrefix() + FILE_FLEXNET_LIB + pcu::getSharedLibrarySuffix();
 		pcu::Path fsFlexLib = rootPath / "bin" / fsFlexLibBaseName;
 		std::string flexLib = fsFlexLib.native_string();
-
+		std::cout <<"flexlib "<< flexLib.c_str()<<std::endl;
 		// setup the licensing information
 		prt::FlexLicParams flp;
 		flp.mActLibPath = flexLib.c_str();

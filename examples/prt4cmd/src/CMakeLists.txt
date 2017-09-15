@@ -22,8 +22,8 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 file( GLOB header_list *.h *.hpp)
 file( GLOB source_list *.cpp )
 
+
 include_directories( ${PRT_INCLUDE_PATH} )
 add_executable(prt4cmd prt4cmd.cpp utils.cpp)
 target_link_libraries(prt4cmd ${PRT_LINK_LIBRARIES} ${PRT_EXT_LIBRARIES} ${PRT_LIBRARIES})
-
 
